@@ -3,11 +3,11 @@ import Search from "@/components/search";
 import CreateButton from "@/components/button";
 
 
-const ContactsPage = () => {
+const Dashboard = () => {
   return (
-    <div className="max-w-screen-md mx-auto mt-5">
+    <div className="max-w-screen-lg mx-auto mt-5 ">
       <div className="flex items-center justify-between gap-1 mb-5">
-        <Search />
+        <Search/>
         <CreateButton />
       </div>
       <ContactTable />
@@ -15,4 +15,4 @@ const ContactsPage = () => {
   );
 };
 
-export default ContactsPage;
+export default Dashboard;
