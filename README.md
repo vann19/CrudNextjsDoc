@@ -20,3 +20,10 @@ Dependecies
   npm i -D prisma
   npm i @prisma/client
 ```
+
+create prisma
+
+```bash
+  npx prisma init
+  npm prisma migrate dev
+```

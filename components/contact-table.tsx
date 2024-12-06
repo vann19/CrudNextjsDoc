@@ -1,4 +1,5 @@
 import { getDashboard } from "@/lib/data"
+import { formatDate } from "@/lib/utils";
 const DashboardTable = async () => {
     const dashboard = await getDashboard();
 
@@ -29,8 +30,8 @@ const DashboardTable = async () => {
                 <td className="py-3 px-6">{penduduk.agama}</td>
                 <td className="py-3 px-6">{penduduk.status_perkawinan}</td>
                 <td className="py-3 px-6">{penduduk.perkerjaan}</td>
-                <td className="py-3 px-6">{penduduk.createdAt.toString()}</td>
-                <td className="py-3 px-6">{penduduk.updatedAt.toString()}</td>
+                <td className="py-3 px-6">{formatDate(penduduk.createdAt.toString())}</td>
+                <td className="py-3 px-6"></td>
                 <td className="py-3 px-6">{}</td>
                 <td></td>
             </tr>
