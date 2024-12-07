@@ -1,6 +1,11 @@
+"use client";
+import HomePage from "./home/home";
+
 const Home = () => {
   return (
-    <div className='text-3xl'>halo next js</div>
+    <div>
+      <HomePage />
+    </div>
   )
 }
 

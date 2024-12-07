@@ -26,4 +26,5 @@ create prisma
 ```bash
   npx prisma init
   npm prisma migrate dev
+  npx prisma studio
 ```

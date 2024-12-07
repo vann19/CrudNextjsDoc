@@ -1,5 +1,6 @@
 import { getDashboard } from "@/lib/data"
 import { formatDate } from "@/lib/utils";
+import { EditButton, DeleteButton } from "./button";
 const DashboardTable = async () => {
     const dashboard = await getDashboard();
 
@@ -30,10 +31,13 @@ const DashboardTable = async () => {
                 <td className="py-3 px-6">{penduduk.agama}</td>
                 <td className="py-3 px-6">{penduduk.status_perkawinan}</td>
                 <td className="py-3 px-6">{penduduk.perkerjaan}</td>
-                <td className="py-3 px-6">{formatDate(penduduk.createdAt.toString())}</td>
-                <td className="py-3 px-6"></td>
-                <td className="py-3 px-6">{}</td>
-                <td></td>
+                <td className="py-3 px-6">
+                    {formatDate(penduduk.createdAt.toString())}
+                </td>
+                <td className="flex justify-center gap-1 py-3">
+                    <EditButton />
+                    <DeleteButton />
+                </td>
             </tr>
             ))}
         </tbody>
