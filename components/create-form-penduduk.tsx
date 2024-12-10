@@ -1,9 +1,9 @@
 "use client";
-import { Dashboard } from "@/lib/action";
+import { SaveDashboard } from "@/lib/action";
 import { useActionState } from "react";
 import { SubmitButton } from "@/components/button";
-const CreateForm = () => {
-  const [state, formAction] = useActionState(Dashboard, null);
+const CreateFormPenduduk = () => {
+  const [state, formAction] = useActionState(SaveDashboard, null);
 
   return (
     <div>
@@ -132,5 +132,5 @@ const CreateForm = () => {
   );
 };
 
-export default CreateForm;
+export default CreateFormPenduduk;
 // SAMPAI SINI

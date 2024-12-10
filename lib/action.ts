@@ -14,6 +14,33 @@ const DashboardSchema = z.object({
   perkerjaan: z.string().max(25),
 });
 
+export const Dashboard = async (prevState: any, formData: FormData) => {
+  const validata = DashboardSchema.safeParse(Object.fromEntries(formData.entries()));
+  if (!validata.success) {
+    return {
+      Error: validata.error.flatten().fieldErrors,
+    };
+  }
+  
+  try {
+    await prisma.penduduk.create({
+      data: {
+        nama: validata.data.nama,
+        nik: validata.data.nik,
+        alamat: validata.data.alamat,
+        jenis_kelamin: validata.data.jenis_kelamin,
+        agama: validata.data.agama,
+        status_perkawinan: validata.data.status_perkawinan,
+        perkerjaan: validata.data.perkerjaan,
+      },
+    });
+  } catch (error) {
+    return { massage: "faild to createDashboard" };
+  }
+
+  revalidatePath("/dashboard");
+  redirect("/dashboard");
+};
 export const SaveDashboard = async (prevState: any, formData: FormData) => {
   const validata = DashboardSchema.safeParse(Object.fromEntries(formData.entries()));
   if (!validata.success) {
@@ -39,5 +66,50 @@ export const SaveDashboard = async (prevState: any, formData: FormData) => {
   }
 
   revalidatePath("/penduduk");
-  redirect("/penduduk");
+  redirect("/");
+};
+
+export const UpdatePenduduk = async (id : string, prevState: any, formData: FormData) => {
+  const validata = DashboardSchema.safeParse(Object.fromEntries(formData.entries()));
+  if (!validata.success) {
+    return {
+      Error: validata.error.flatten().fieldErrors,
+    };
+  }
+
+  try {
+    await prisma.penduduk.update({
+      data: {
+        nama: validata.data.nama,
+        nik: validata.data.nik,
+        alamat: validata.data.alamat,
+        jenis_kelamin: validata.data.jenis_kelamin,
+        agama: validata.data.agama,
+        status_perkawinan: validata.data.status_perkawinan,
+        perkerjaan: validata.data.perkerjaan,
+      },
+      where:{id}
+    });
+  } catch (error) {
+    return { massage: "faild to updateDashboard" };
+  }
+
+  revalidatePath("/dashboard");
+  redirect("/dashboard");
+};
+
+
+
+
+export const DeleteButtonDashboard = async (id: string) => {
+  try {
+    await prisma.penduduk.delete({
+      where: { id },
+    });
+    revalidatePath("/dashboard");
+  } catch (error) {
+    return { massage: "faild to deleted Dashboard" };
+  }
+
+  
 };

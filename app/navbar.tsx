@@ -8,7 +8,7 @@ const Navbar = () => {
    const router = useRouter();
   return (
     <div>
-      <nav className="bg-white border-gray-200 dark:bg-gray-900">
+      <nav className="bg-white border-gray-200 dark:bg-gray-900  sticky top-0 z-50">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <Link href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
             <img src="/images/bar.png" className="h-8" alt="Flowbite Logo" />
@@ -86,7 +86,7 @@ const Navbar = () => {
                 </Link>
               </li>
                 <div>
-                  <button className="bg-white rounded-md px-3 text-sm h-7 cursor-pointer">
+                  <button className="bg-white rounded-md px-3 text-sm h-7 cursor-pointer hover:bg-gray-400 transition-all ">
                     Login
                   </button>
                 </div>

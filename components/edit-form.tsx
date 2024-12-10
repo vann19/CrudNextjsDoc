@@ -1,10 +1,12 @@
 "use client";
-import { Dashboard } from "@/lib/action";
+import { UpdatePenduduk } from "@/lib/action";
 import { useActionState } from "react";
 import { SubmitButton } from "@/components/button";
-const CreateForm = () => {
-  const [state, formAction] = useActionState(Dashboard, null);
+import type { penduduk } from "@prisma/client";
 
+const UpdateForm = ({ penduduk }: { penduduk: penduduk}) => {
+    const UpdatePendudukWithId = UpdatePenduduk.bind(null, penduduk.id);
+  const [state, formAction] = useActionState(UpdatePendudukWithId, null);
   return (
     <div>
       <form action={formAction}>
@@ -19,6 +21,7 @@ const CreateForm = () => {
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-sm focus:ring-blue-500
                     focus:border-blue-500    block w-full p-2.5"
             placeholder="Masukkan Nama"
+            defaultValue={penduduk.nama}
           />
           <div id="nama-error" aria-live="polite" aria-atomic="true">
             <p className="mt-2 text-sm font-medium text-gray-900">{state?.Error?.nama}</p>
@@ -27,7 +30,6 @@ const CreateForm = () => {
         <div className="mb-5">
           <label htmlFor="name" className="block text-sm font-medium text-gray-900">
             Nik
-            <span className="text-red-500">*</span>
           </label>
           <input
             type="text"
@@ -38,6 +40,7 @@ const CreateForm = () => {
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-sm focus:ring-blue-500
                     focus:border-blue-500    block w-full p-2.5"
             placeholder="Masukkan Nik (16 digit)"
+            defaultValue={penduduk.nik}
           />
           <div id="nik-error" aria-live="polite" aria-atomic="true">
             <p className="mt-2 text-sm font-medium text-gray-900">{state?.Error?.nik}</p>
@@ -54,6 +57,7 @@ const CreateForm = () => {
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-sm focus:ring-blue-500
                     focus:border-blue-500    block w-full p-2.5"
             placeholder="Masukkan Alamat"
+            defaultValue={penduduk.alamat}
           />
           <div id="alamat-error" aria-live="polite" aria-atomic="true">
             <p className="mt-2 text-sm font-medium text-gray-900">{state?.Error?.alamat}</p>
@@ -70,6 +74,7 @@ const CreateForm = () => {
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-sm focus:ring-blue-500
                     focus:border-blue-500    block w-full p-2.5"
             placeholder="Masukkan Jenis Kelamin"
+            defaultValue={penduduk.jenis_kelamin}
           />
           <div id="jenis-kelamin-error" aria-live="polite" aria-atomic="true">
             <p className="mt-2 text-sm font-medium text-gray-900">{state?.Error?.jenis_kelamin}</p>
@@ -86,6 +91,7 @@ const CreateForm = () => {
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-sm focus:ring-blue-500
                     focus:border-blue-500    block w-full p-2.5"
             placeholder="Masukkan Agama"
+            defaultValue={penduduk.agama}
           />
           <div id="agama-error" aria-live="polite" aria-atomic="true">
             <p className="mt-2 text-sm font-medium text-gray-900">{state?.Error?.agama}</p>
@@ -102,6 +108,7 @@ const CreateForm = () => {
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-sm focus:ring-blue-500
                     focus:border-blue-500    block w-full p-2.5"
             placeholder="Masukkan Status Perkawinan"
+            defaultValue={penduduk.status_perkawinan}
           />
           <div id="status-perkawinan-error" aria-live="polite" aria-atomic="true">
             <p className="mt-2 text-sm font-medium text-gray-900">{state?.Error?.status_perkawinan}</p>
@@ -118,6 +125,7 @@ const CreateForm = () => {
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-sm focus:ring-blue-500
                     focus:border-blue-500    block w-full p-2.5"
             placeholder="Masukkan Pekerjaan"
+            defaultValue={penduduk.perkerjaan}
           />
           <div id="pekerjaan-error" aria-live="polite" aria-atomic="true">
             <p className="mt-2 text-sm font-medium text-gray-900">{state?.Error?.perkerjaan}</p>
@@ -126,11 +134,11 @@ const CreateForm = () => {
         <div id="message-error" aria-live="polite" aria-atomic="true">
           <p className="mt-2 text-sm font-medium text-gray-900">{state?.massage}</p>
         </div>
-        <SubmitButton label="save" />
+        <SubmitButton label="update" />
       </form>
     </div>
   );
 };
 
-export default CreateForm;
+export default UpdateForm;
 // SAMPAI SINI
