@@ -1,8 +1,8 @@
-import { getDashboard } from "@/lib/data"
+import { getDashboard } from "@/lib/data";
 import { formatDate } from "@/lib/utils";
 import { EditButton, DeleteButton } from "./button";
-const DashboardTable = async () => {
-    const dashboard = await getDashboard();
+const DashboardTable = async ({ query, currentPage }: { query: string; currentPage: number }) => {
+  const dashboard = await getDashboard(query, currentPage);
 
   return (
     <table className="w-full text-sm text-left text-gray-500">
@@ -41,6 +41,6 @@ const DashboardTable = async () => {
       </tbody>
     </table>
   );
-}
+};
 
-export default DashboardTable
+export default DashboardTable;

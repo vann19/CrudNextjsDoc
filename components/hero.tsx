@@ -1,5 +1,5 @@
-import React from 'react'
-import Image from 'next/image';
+import React from "react";
+import Image from "next/image";
 
 const HeroSection = () => {
   return (
@@ -26,7 +26,7 @@ const HeroSection = () => {
             >
               Badan Pusat Statistik (BPS) Pemerintah Wakanda
             </h1>
-            <p className="text-gray-700">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium sequi distinctio voluptate dolores cupiditate, quam architecto quis iste dignissimos accusamus?</p>
+
             {/* play store and app store buttons */}
             <div className="flex mt-8 mb-8 items-center space-x-4">
               <Image src="/images/gp.png" alt="play store" width={150} height={150} className="object-contain" />
@@ -41,6 +41,6 @@ const HeroSection = () => {
       </div>
     </div>
   );
-}
+};
 
-export default HeroSection
+export default HeroSection;

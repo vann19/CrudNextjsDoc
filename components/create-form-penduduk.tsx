@@ -10,7 +10,7 @@ const CreateFormPenduduk = () => {
       <form action={formAction}>
         <div className="mb-5">
           <label htmlFor="name" className="block text-sm font-medium text-gray-900">
-            Full Name
+            Nama Lengkap
           </label>
           <input
             type="text"

@@ -69,6 +69,14 @@ const Navbar = () => {
                   About
                 </Link>
               </li>
+              <li className={`${pathname === "/domisili"}`}>
+                <Link
+                  href="/domisili"
+                  className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                >
+                  Domisili
+                </Link>
+              </li>
               <li className={`${pathname === "/penduduk"}`}>
                 <Link
                   href="/penduduk"
@@ -85,11 +93,7 @@ const Navbar = () => {
                   Contact
                 </Link>
               </li>
-                <div>
-                  <button className="bg-white rounded-md px-3 text-sm h-7 cursor-pointer hover:bg-gray-400 transition-all ">
-                    Login
-                  </button>
-                </div>
+               
             </ul>
           </div>
         </div>

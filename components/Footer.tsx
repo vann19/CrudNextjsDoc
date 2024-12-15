@@ -49,15 +49,15 @@ const Footer = () => {
               </li>
               <li className="flex items-center ">
                 <SiFiverr className="mr-2 " />
-                Fansyaode19
+                BPSWakanda
               </li>
               <li className="flex items-center">
                 <FaInstagram className="mr-2" />
-                Ruang Ngoding Kreatif
+                @wakanda_
               </li>
               <li className="flex items-center">
                 <SiGmail className="mr-2" />
-                fannstudio19@gmail.com
+                Wakandaforever@gmail.com
               </li>
             </ul>
           </div>
